@@ -15,6 +15,19 @@
 # tasks/main.yaml
 borgmatic_task_manager:
   - install
+  - config
+
+# task/config.yaml
+borgmatic_user_name: root
+borgmatic_user_group: root
+borgmatic_user_home: /root
+
+borgmatic_file_config_yaml_dest:
+  "{{ borgmatic_user_home }}/.config/borgmatic/config.yaml"
+borgmatic_file_config_yaml_group: "{{ borgmatic_user_group }}"
+borgmatic_file_config_yaml_mode: 0644
+borgmatic_file_config_yaml_owner: "{{ borgmatic_user_name }}"
+borgmatic_file_config_yaml_src: root/.config/borgmatic/config.yaml.j2
 
 # tasks/install.yaml
 borgmatic_git_dest: "{{ ansible_user_dir }}/src/github.com/witten/borgmatic"
