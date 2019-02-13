@@ -13,5 +13,23 @@
 # under the License.
 
 
+def test_borgmatic_config(host):
+    f = host.file('/root/.config/borgmatic')
+    assert f.exists
+    assert f.is_directory
+    assert f.user == 'root'
+    assert f.group == 'root'
+    # TODO(pabelanger): Validate mode
+    del f
+
+    f = host.file('/root/.config/borgmatic/config.yaml')
+    assert f.exists
+    assert f.is_file
+    assert f.user == 'root'
+    assert f.group == 'root'
+    assert f.mode == 0o644
+    del f
+
+
 def test_borgmatic_version(host):
     host.check_output('borgmatic --version')
