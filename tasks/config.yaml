@@ -11,25 +11,20 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
+---
+- name: Create required directories
+  become: true
+  file:
+    group: "{{ borgmatic_user_group }}"
+    owner: "{{ borgmatic_user_name }}"
+    path: /etc/borgmatic
+    state: directory
 
-
-def test_borgmatic_config(host):
-    f = host.file('/etc/borgmatic')
-    assert f.exists
-    assert f.is_directory
-    assert f.user == 'root'
-    assert f.group == 'root'
-    # TODO(pabelanger): Validate mode
-    del f
-
-    f = host.file('/etc/borgmatic/config.yaml')
-    assert f.exists
-    assert f.is_file
-    assert f.user == 'root'
-    assert f.group == 'root'
-    assert f.mode == 0o644
-    del f
-
-
-def test_borgmatic_version(host):
-    host.check_output('borgmatic --version')
+- name: Install borgmatic configuration
+  become: true
+  template:
+    dest: "{{ borgmatic_file_config_yaml_dest }}"
+    group: "{{ borgmatic_file_config_yaml_group }}"
+    mode: "{{ borgmatic_file_config_yaml_mode }}"
+    owner: "{{borgmatic_file_config_yaml_owner }}"
+    src: "{{ borgmatic_file_config_yaml_src }}"
