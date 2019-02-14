@@ -43,6 +43,9 @@
     nodeset: ubuntu-bionic
 
 - project:
+    templates:
+      - windmill-backup-jobs-fedora-latest
+      - windmill-backup-jobs-bionic
     check:
       jobs:
         - ansible-role-borgmatic-fedora-latest
