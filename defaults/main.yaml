@@ -25,7 +25,7 @@ borgmatic_user_home: /root
 borgmatic_file_config_yaml_dest:
   "{{ borgmatic_user_home }}/.config/borgmatic/config.yaml"
 borgmatic_file_config_yaml_group: "{{ borgmatic_user_group }}"
-borgmatic_file_config_yaml_mode: 0644
+borgmatic_file_config_yaml_mode: 0640
 borgmatic_file_config_yaml_owner: "{{ borgmatic_user_name }}"
 borgmatic_file_config_yaml_src: root/.config/borgmatic/config.yaml.j2
 

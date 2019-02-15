@@ -27,7 +27,7 @@ def test_borgmatic_config(host):
     assert f.is_file
     assert f.user == 'root'
     assert f.group == 'root'
-    assert f.mode == 0o644
+    assert f.mode == 0o640
     del f
 
 
