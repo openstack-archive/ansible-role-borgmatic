@@ -17,6 +17,11 @@ location:
     exclude_patterns:
         - /home/*/.cache
 
+storage:
+    # WARNING! Be sure to change this value, otherwise when you initialize
+    # a borg repo, it will default to public secret!
+    encryption_passphrase: SuperSecretPassphrase
+
 retention:
     # Retention policy for how many backups to keep in each category.
     keep_daily: 7
