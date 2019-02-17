@@ -29,3 +29,12 @@
     mode: "{{ borgmatic_file_config_yaml_mode }}"
     owner: "{{borgmatic_file_config_yaml_owner }}"
     src: "{{ borgmatic_file_config_yaml_src }}"
+
+- name: Install borgmatic crontab
+  become: true
+  template:
+    dest: "{{ borgmatic_file_crontab_dest }}"
+    group: "{{ borgmatic_file_crontab_group }}"
+    mode: "{{ borgmatic_file_crontab_mode }}"
+    owner: "{{borgmatic_file_crontab_owner }}"
+    src: "{{ borgmatic_file_crontab_src }}"

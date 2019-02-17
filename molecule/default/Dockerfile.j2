@@ -6,4 +6,4 @@ FROM {{ item.registry.url }}/{{ item.image }}
 FROM {{ item.image }}
 {% endif %}
 
-RUN apt-get update && apt-get install -y python sudo bash ca-certificates python-pip python3-pip && apt-get clean;
+RUN apt-get update && apt-get install -y python sudo bash ca-certificates cron python-pip python3-pip && apt-get clean;

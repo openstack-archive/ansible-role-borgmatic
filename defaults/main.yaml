@@ -29,6 +29,12 @@ borgmatic_file_config_yaml_mode: 0640
 borgmatic_file_config_yaml_owner: "{{ borgmatic_user_name }}"
 borgmatic_file_config_yaml_src: root/.config/borgmatic/config.yaml.j2
 
+borgmatic_file_crontab_dest: /etc/cron.d/borgmatic
+borgmatic_file_crontab_group: root
+borgmatic_file_crontab_mode: 0644
+borgmatic_file_crontab_owner: root
+borgmatic_file_crontab_src: etc/cron.d/borgmatic.j2
+
 # tasks/install.yaml
 borgmatic_git_dest: "{{ ansible_user_dir }}/src/github.com/witten/borgmatic"
 borgmatic_git_uri: https://github.com/witten/borgmatic
