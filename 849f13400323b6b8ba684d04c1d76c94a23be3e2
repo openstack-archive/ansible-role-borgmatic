@@ -1,0 +1,8 @@
+Code-Review+2: Paul Belanger <pabelanger@redhat.com>
+Workflow+1: Paul Belanger <pabelanger@redhat.com>
+Verified+2: Zuul
+Submitted-by: Zuul
+Submitted-at: Sun, 17 Feb 2019 21:52:01 +0000
+Reviewed-on: https://review.openstack.org/637435
+Project: openstack/ansible-role-borgmatic
+Branch: refs/heads/master
