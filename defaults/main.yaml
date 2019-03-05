@@ -49,3 +49,70 @@ borgmatic_pip_name: borgmatic
 # borgmatic_pip_version:
 # borgmatic_pip_virtualenv_python:
 # borgmatic_pip_virtualenv:
+
+# ------ Borgmatic Configuration handling ----------
+
+# Directories to save
+borgmatic_config_source_directories:
+  - /home
+  - /etc
+  - /var/log/syslog*
+
+# Repositories locations
+borgmatic_config_repositories:
+  - user@backupserver:archive.name
+
+# Exclude from the backup files matching the given patterns
+borgmatic_config_exclude_patterns:
+  - /home/*/.cache
+
+# Command used to retrieve repository encryption passphrase
+# borgmatic_config_encryption_passcommand: ""
+
+# Passphrase to unlock the encryption key with. Only use on repositories that were
+# initialized with passphrase/repokey encryption. Quote the value if it contains
+# punctuation, so it parses correctly. And backslash any quote or backslash
+# literals as well. Defaults to not set.
+# borgmatic_config_encryption_passphrase: ""
+
+# Custom ssh command used for remote repositories
+# borgmatic_config_ssh_command: ssh -i /path/to/key.file
+
+# Archive name format for automated backups
+# borgmatic_config_archive_name_format: '{hostname}-documents-{now}'
+
+# Backup retention as key-values mapping.
+# See https://borgbackup.readthedocs.org/en/stable/usage.html#borg-prune for details.
+borgmatic_config_retention:
+  keep_daily: 7
+
+# List of one or more consistency checks to run: "repository", "archives", and/or
+# "extract". Defaults to "repository" and "archives". Set to "disabled" to disable
+# all consistency checks. "repository" checks the consistency of the repository,
+# "archive" checks all of the archives, and "extract" does an extraction dry-run
+# of the most recent archive.
+# borgmatic_config_consistency_checks: []
+
+# Paths to a subset of the repositories in the location section on which to run
+# consistency checks. Handy in case some of your repositories are very large, and
+# so running consistency checks on them would take too long. Defaults to running
+# consistency checks on all repositories configured in the location section.
+# borgmatic_config_consistency_check_repositories: []
+
+# Restrict the number of checked archives to the last n.
+# Applies only to the "archives" check. Defaults to checking all archives.
+# borgmatic_config_consistency_check_last: 3
+
+# When performing the "archives" check, only consider archive names starting with
+# this prefix. Borg placeholders can be used. See the output of
+# "borg help placeholders" for details.
+# borgmatic_config_consistency_prefix: "{hostname}-"
+
+# List of one or more shell commands or scripts to execute before creating a backup.
+# borgmatic_config_hooks_before: []
+
+# List of one or more shell commands or scripts to execute after creating a backup.
+# borgmatic_config_hooks_after: []
+
+# List of one or more shell commands or scripts to execute in case an exception has occurred.
+# borgmatic_config_hooks_on_error: []
